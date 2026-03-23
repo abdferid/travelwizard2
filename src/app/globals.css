@@ -1,0 +1,262 @@
+/* Google Fonts - Plus Jakarta Sans */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@import "tailwindcss";
+
+/* Material Design 3 Color System - Azerbaijan Tour Planner */
+@theme {
+  /* Primary - Emerald Green */
+  --color-primary: #006a2e;
+  --color-primary-dim: #005d27;
+  --color-primary-container: #5dfd8a;
+  --color-primary-fixed: #5dfd8a;
+  --color-on-primary: #ceffd0;
+  --color-on-primary-container: #005d27;
+  
+  /* Secondary */
+  --color-secondary: #006942;
+  --color-secondary-container: #79fbb7;
+  --color-on-secondary: #caffdc;
+  
+  /* Tertiary - Pink/Magenta accent */
+  --color-tertiary: #b6004f;
+  --color-tertiary-dim: #a00045;
+  --color-tertiary-container: #ff8fa8;
+  --color-tertiary-fixed: #ff8fa8;
+  --color-on-tertiary: #ffeff0;
+  
+  /* Surface System */
+  --color-surface: #f5f6f7;
+  --color-surface-dim: #d1d5d7;
+  --color-surface-bright: #f5f6f7;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff1f2;
+  --color-surface-container: #e6e8ea;
+  --color-surface-container-high: #e0e3e4;
+  --color-surface-container-highest: #dadddf;
+  --color-surface-variant: #dadddf;
+  
+  /* On Surface */
+  --color-on-surface: #2c2f30;
+  --color-on-surface-variant: #595c5d;
+  --color-on-background: #2c2f30;
+  --color-background: #f5f6f7;
+  
+  /* Outline */
+  --color-outline: #757778;
+  --color-outline-variant: #abadae;
+  
+  /* Error */
+  --color-error: #b02500;
+  --color-error-container: #f95630;
+  --color-on-error: #ffefec;
+  
+  /* WhatsApp - Reserved for CTA */
+  --color-whatsapp: #25D366;
+  --color-whatsapp-dark: #006a2e;
+  
+  /* Typography */
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-headline: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+/* Base styles */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  min-height: 100dvh;
+}
+
+/* Material Symbols support */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom scrollbar - minimal */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-outline-variant);
+  border-radius: 2px;
+}
+
+/* Hide scrollbar utility */
+.no-scrollbar,
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Progress bar gradient */
+.progress-gradient {
+  background: linear-gradient(90deg, #ec4899 0%, #f97316 100%);
+}
+
+/* Action button gradient (WhatsApp style) */
+.action-gradient {
+  background: linear-gradient(135deg, #25D366 0%, #006a2e 100%);
+}
+
+/* Glass effect */
+.glass-panel,
+.bg-glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Date picker custom styles */
+.rdp {
+  --rdp-accent-color: var(--color-primary);
+  --rdp-background-color: rgba(0, 106, 46, 0.08);
+  --rdp-accent-background-color: var(--color-primary);
+  margin: 0;
+}
+
+.rdp-day_selected {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  border-radius: 0.75rem !important;
+}
+
+.rdp-day_selected:hover {
+  background-color: var(--color-primary-dim) !important;
+}
+
+.rdp-day:hover:not(.rdp-day_selected) {
+  background-color: var(--color-surface-container-low);
+  border-radius: 0.75rem;
+}
+
+.rdp-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.rdp-month_caption {
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.rdp-weekday {
+  font-weight: 700;
+  color: var(--color-outline);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Touch-friendly tap targets */
+@media (pointer: coarse) {
+  button, 
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Success page confetti */
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-confetti {
+  animation: confetti-fall 3s ease-out forwards;
+}
+
+/* Success checkmark scale */
+@keyframes scale-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Safe area padding for bottom nav */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+/* Soft shadow utilities */
+.shadow-soft {
+  box-shadow: 0 8px 24px rgba(44, 47, 48, 0.06);
+}
+
+.shadow-elevated {
+  box-shadow: 0 12px 40px rgba(44, 47, 48, 0.1);
+}
+
+/* Selection highlight */
+::selection {
+  background-color: rgba(0, 106, 46, 0.15);
+  color: inherit;
+}
