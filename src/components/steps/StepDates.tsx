@@ -7,7 +7,7 @@ import { DayPicker, DateRange } from 'react-day-picker';
 import { PlaneTakeoff, PlaneLanding, Sparkles, Lightbulb } from 'lucide-react';
 import 'react-day-picker/style.css';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function StepDates() {
   const { startDate, endDate, setStartDate, setEndDate, currentStep } = useBookingStore();
@@ -209,31 +209,7 @@ export default function StepDates() {
         </div>
       </div>
 
-      {/* Quick select pills */}
-      <div className="mt-8">
-        <p className="text-xs font-bold text-[#757778] uppercase tracking-widest mb-3">Quick Select</p>
-        <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-          {[
-            { label: 'Weekend', days: 2 },
-            { label: '5 Days', days: 5 },
-            { label: '1 Week', days: 7 },
-            { label: '10 Days', days: 10 },
-            { label: '2 Weeks', days: 14 },
-          ].map((option) => (
-            <button
-              key={option.label}
-              onClick={() => {
-                const from = today;
-                const to = addDays(today, option.days);
-                handleRangeSelect({ from, to });
-              }}
-              className="px-5 py-3 bg-white border border-[#abadae]/20 rounded-2xl text-sm font-semibold text-[#595c5d] hover:border-[#006a2e]/30 hover:text-[#006a2e] transition-all whitespace-nowrap shadow-sm"
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-      </div>
+
     </div>
   );
 }

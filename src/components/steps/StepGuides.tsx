@@ -3,7 +3,7 @@
 import { useBookingStore, GUIDE_GENDER_OPTIONS } from '@/store/booking-store';
 import { Award, Footprints, Info, UserSearch, Map } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function StepGuides() {
   const { 
@@ -14,11 +14,11 @@ export default function StepGuides() {
     currentStep,
   } = useBookingStore();
 
-  const needsGuide = guideCertification === 'certified';
+  const showGenderPreference = guideCertification === 'certified' || guideCertification === 'not-necessary';
 
   const handleCertificationSelect = (id: string) => {
     setGuideCertification(id);
-    if (id !== 'certified') {
+    if (id === 'no-need') {
       setGuideGender(null);
     }
   };
@@ -139,7 +139,7 @@ export default function StepGuides() {
       </section>
 
       {/* Secondary Preference: Gender */}
-      <div className={`transition-all duration-300 ${needsGuide ? 'opacity-100 max-h-40' : 'opacity-40 max-h-40 overflow-hidden pointer-events-none'}`}>
+      <div className={`transition-all duration-300 ${showGenderPreference ? 'opacity-100 max-h-40' : 'opacity-40 max-h-40 overflow-hidden pointer-events-none'}`}>
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <UserSearch className="w-5 h-5 text-[#b6004f]" strokeWidth={2} />
@@ -156,7 +156,7 @@ export default function StepGuides() {
                     type="radio"
                     name="gender_pref"
                     checked={isSelected}
-                    onChange={() => needsGuide && setGuideGender(option.id)}
+                    onChange={() => showGenderPreference && setGuideGender(option.id)}
                     className="hidden"
                   />
                   <div className={`

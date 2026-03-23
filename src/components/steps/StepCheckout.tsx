@@ -3,7 +3,7 @@
 import { useBookingStore, COUNTRY_CODES, HOTELS_DATA, TRANSPORT_OPTIONS, TOURS_DATA, DINING_EXPERIENCES } from '@/store/booking-store';
 import { User, Phone, MessageSquare, ChevronDown, MapPin, Car, Users, UtensilsCrossed, Building, Calendar, CheckCircle2 } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 // Elegant input component matching HTML reference
 function ElegantInput({
@@ -194,37 +194,7 @@ function TripSummary() {
           </div>
         )}
         
-        {/* Hotel */}
-        {hotelData && (
-          <div className="flex justify-between items-start">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#eff1f2] flex items-center justify-center text-[#595c5d]">
-                <Building className="w-4 h-4" strokeWidth={1.5} />
-              </div>
-              <div>
-                <p className="font-semibold text-[#2c2f30]">{hotelData.name}</p>
-                <p className="text-xs text-[#595c5d]">${hotelData.pricePerNight}/night × {Math.max(1, tripDuration - 1)}</p>
-              </div>
-            </div>
-            <span className="font-bold text-[#2c2f30]">${getHotelPrice()}</span>
-          </div>
-        )}
-        
-        {/* Dining */}
-        {diningData.length > 0 && (
-          <div className="flex justify-between items-start">
-            <div className="flex items-start gap-3">
-              <div className="w-8 h-8 rounded-xl bg-[#eff1f2] flex items-center justify-center text-[#595c5d]">
-                <UtensilsCrossed className="w-4 h-4" strokeWidth={1.5} />
-              </div>
-              <div>
-                <p className="font-semibold text-[#2c2f30]">Dining Experiences</p>
-                <p className="text-xs text-[#595c5d]">{diningData.map(d => d.name).join(', ')}</p>
-              </div>
-            </div>
-            <span className="font-bold text-[#2c2f30]">${Math.round(getDiningExperiencesPrice())}</span>
-          </div>
-        )}
+
       </div>
       
       {/* Total */}

@@ -2,12 +2,12 @@
 
 import { useBookingStore } from '@/store/booking-store';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function ProgressBar() {
   const { currentStep, isSubmitted } = useBookingStore();
 
-  if (currentStep === 10 && isSubmitted) return null;
+  if (currentStep === 8 && isSubmitted) return null;
 
   const progressPercent = (currentStep / TOTAL_STEPS) * 100;
 

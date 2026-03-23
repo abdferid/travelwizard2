@@ -4,7 +4,7 @@ import { useBookingStore, TOURS_DATA } from '@/store/booking-store';
 import TourCard from '@/components/TourCard';
 import { MapPin, Check } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function StepTours() {
   const { selectedTours, getTourExtrasPrice, currentStep } = useBookingStore();

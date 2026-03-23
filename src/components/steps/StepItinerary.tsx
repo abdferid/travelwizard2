@@ -21,7 +21,7 @@ import { CSS } from '@dnd-kit/utilities';
 import { useBookingStore, TOURS_DATA, ItineraryItem } from '@/store/booking-store';
 import { GripVertical, AlertTriangle, RotateCcw, Map, Coffee, Lightbulb, X } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 // Toast notification
 function Toast({ message, onClose }: { message: string; onClose: () => void }) {

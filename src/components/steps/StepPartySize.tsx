@@ -3,7 +3,7 @@
 import { useBookingStore } from '@/store/booking-store';
 import { Minus, Plus, Users, AlertCircle, Maximize2 } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 interface CounterRowProps {
   label: string;
@@ -184,12 +184,7 @@ export default function StepPartySize() {
           alt="Friends traveling together"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#f5f6f7] via-transparent to-transparent" />
-        <button
-          onClick={() => useBookingStore.getState().setFullscreenImage('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?w=800&auto=format&fit=crop')}
-          className="absolute top-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md"
-        >
-          <Maximize2 className="w-4 h-4" strokeWidth={2} />
-        </button>
+
         <div className="absolute bottom-6 left-6 right-6">
           <p className="text-xs font-semibold text-[#595c5d] italic tracking-wide">
             "Travel is better when shared." — Caspian Curators

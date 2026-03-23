@@ -3,7 +3,7 @@
 import { useBookingStore, TRANSPORT_OPTIONS } from '@/store/booking-store';
 import { Users, Check, ChevronsRight, Eye, Info, Maximize2 } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 function SkipButton({ onSkip }: { onSkip: () => void }) {
   return (
@@ -145,6 +145,27 @@ export default function StepTransport() {
       {/* Skip button */}
       <div className="mt-8">
         <SkipButton onSkip={handleSkip} />
+      </div>
+
+      {/* Decorative Image with Expand Button */}
+      <div className="mt-16 relative h-48 rounded-3xl overflow-hidden group">
+        <img 
+          className="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700" 
+          src="https://images.unsplash.com/photo-1464851739515-5686ec57b988?w=800&auto=format&fit=crop"
+          alt="Scenic road trip"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#f5f6f7] via-transparent to-transparent" />
+        <button
+          onClick={() => useBookingStore.getState().setFullscreenImage('https://images.unsplash.com/photo-1464851739515-5686ec57b988?w=800&auto=format&fit=crop')}
+          className="absolute top-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md"
+        >
+          <Maximize2 className="w-4 h-4" strokeWidth={2} />
+        </button>
+        <div className="absolute bottom-6 left-6 right-6">
+          <p className="text-xs font-semibold text-[#595c5d] italic tracking-wide">
+            "The journey is as important as the destination." — Caspian Curators
+          </p>
+        </div>
       </div>
     </div>
   );

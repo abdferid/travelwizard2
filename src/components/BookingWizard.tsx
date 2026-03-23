@@ -16,7 +16,7 @@ import StepDining from './steps/StepDining';
 import StepCheckout from './steps/StepCheckout';
 import StepSuccess from './steps/StepSuccess';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function BookingWizard() {
   const { currentStep, isSubmitted } = useBookingStore();
@@ -45,15 +45,13 @@ export default function BookingWizard() {
       case 4: return <StepGuides />;
       case 5: return <StepTours />;
       case 6: return <StepItinerary />;
-      case 7: return <StepHotels />;
-      case 8: return <StepDining />;
-      case 9: return <StepCheckout />;
-      case 10: return <StepSuccess />;
+      case 7: return <StepCheckout />;
+      case 8: return <StepSuccess />;
       default: return <StepPartySize />;
     }
   };
 
-  const isSuccessStep = currentStep === 10 && isSubmitted;
+  const isSuccessStep = currentStep === 8 && isSubmitted;
 
   return (
     <div className="min-h-screen bg-[#f5f6f7] flex flex-col">

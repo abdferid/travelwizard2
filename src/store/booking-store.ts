@@ -995,19 +995,7 @@ export const useBookingStore = create<BookingState>()(
             }
             return { isValid: true, error: null };
             
-          case 7: // Hotels - OPTIONAL (can skip)
-            if (state.skippedSteps.includes(7)) {
-              return { isValid: true, error: null };
-            }
-            if (!state.selectedHotel) {
-              return { isValid: false, error: 'Please select a hotel or skip this step' };
-            }
-            return { isValid: true, error: null };
-            
-          case 8: // Dining Experiences - OPTIONAL, always valid
-            return { isValid: true, error: null };
-            
-          case 9: // Contact
+          case 7: // Contact (formerly Step 9)
             if (!state.contactInfo.firstName.trim()) {
               return { isValid: false, error: 'Please enter your first name' };
             }
@@ -1022,7 +1010,7 @@ export const useBookingStore = create<BookingState>()(
             }
             return { isValid: true, error: null };
             
-          case 10: // Success
+          case 8: // Success (formerly Step 10)
             return { isValid: true, error: null };
             
           default:

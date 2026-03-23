@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useBookingStore } from '@/store/booking-store';
 import { ArrowLeft, ArrowRight, Loader2, Send } from 'lucide-react';
 
-const TOTAL_STEPS = 10;
+const TOTAL_STEPS = 8;
 
 export default function BottomNav() {
   const { 
@@ -22,8 +22,8 @@ export default function BottomNav() {
 
   const validation = getStepValidation(currentStep);
   const isFirstStep = currentStep === 1;
-  const isCheckoutStep = currentStep === 9;
-  const isSuccessStep = currentStep === 10;
+  const isCheckoutStep = currentStep === 7;
+  const isSuccessStep = currentStep === 8;
   const tripDuration = getTripDuration();
   const totalPrice = getTotalPrice();
 
@@ -44,7 +44,7 @@ export default function BottomNav() {
       setIsSubmitting(true);
       try {
         await submitBooking();
-        setCurrentStep(10);
+        setCurrentStep(8);
       } catch (error) {
         console.error('Submission error:', error);
       } finally {
