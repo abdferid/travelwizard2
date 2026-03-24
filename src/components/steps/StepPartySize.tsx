@@ -44,7 +44,7 @@ function CounterRow({
             border border-[#abadae]/20
             transition-all active:scale-90 duration-200
             ${canDecrement 
-              ? 'text-[#757778] hover:text-[#006a2e] hover:shadow-md' 
+              ? 'text-[#757778] hover:text-[#006a2e] hover:shadow-md cursor-pointer'
               : 'text-[#757778] opacity-30 cursor-not-allowed'
             }
           `}
@@ -67,7 +67,7 @@ function CounterRow({
             border border-[#abadae]/20
             transition-all active:scale-90 duration-200
             ${canIncrement 
-              ? 'text-[#006a2e] shadow-sm hover:shadow-md' 
+              ? 'text-[#006a2e] shadow-sm hover:shadow-md cursor-pointer'
               : 'text-[#757778] opacity-30 cursor-not-allowed'
             }
           `}
@@ -117,7 +117,7 @@ export default function StepPartySize() {
               }}
               className={`
                 bg-white p-6 rounded-2xl flex flex-col items-center justify-center
-                transition-all active:scale-95 group shadow-sm
+                transition-all active:scale-95 group shadow-sm cursor-pointer
                 ${option.count === 5 ? 'col-span-1 md:col-span-2' : ''}
                 ${isSelected 
                   ? 'border-2 border-[#006a2e] shadow-md relative' 

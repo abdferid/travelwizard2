@@ -155,7 +155,7 @@ export default function TourCard({ tour }: TourCardProps) {
             </div>
             <button
               onClick={() => setViewState('default')}
-              className="w-full min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 active:scale-[0.98] transition-all"
+              className="w-full min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer"
             >
               <CheckCircle className="w-5 h-5" strokeWidth={2.5} /> Confirm Selections
             </button>
@@ -185,7 +185,7 @@ export default function TourCard({ tour }: TourCardProps) {
                   <img src={img} alt={`Gallery ${idx + 1}`} className="w-full h-full object-cover" />
                   <button
                     onClick={(e) => { e.stopPropagation(); useBookingStore.getState().setFullscreenImage(img); }}
-                    className="absolute bottom-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md"
+                    className="absolute bottom-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md cursor-pointer"
                   >
                     <Maximize2 className="w-4 h-4" strokeWidth={2} />
                   </button>
@@ -203,10 +203,10 @@ export default function TourCard({ tour }: TourCardProps) {
             )}
 
             {/* Arrows */}
-            <button onClick={() => scrollGallery('left')} className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#2c2f30] shadow-md opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+            <button onClick={() => scrollGallery('left')} className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#2c2f30] shadow-md opacity-0 group-hover/gallery:opacity-100 transition-opacity cursor-pointer">
               <ChevronLeft className="w-5 h-5" strokeWidth={2} />
             </button>
-            <button onClick={() => scrollGallery('right')} className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#2c2f30] shadow-md opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+            <button onClick={() => scrollGallery('right')} className="absolute right-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-[#2c2f30] shadow-md opacity-0 group-hover/gallery:opacity-100 transition-opacity cursor-pointer">
               <ChevronRight className="w-5 h-5" strokeWidth={2} />
             </button>
           </div>
@@ -219,13 +219,13 @@ export default function TourCard({ tour }: TourCardProps) {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setViewState('default')}
-                className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-[#eff1f2] text-[#595c5d] rounded-xl font-bold transition-all hover:bg-[#e0e3e4] active:scale-[0.98]"
+                className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-[#eff1f2] text-[#595c5d] rounded-xl font-bold transition-all hover:bg-[#e0e3e4] active:scale-[0.98] cursor-pointer"
               >
                 <X className="w-5 h-5" strokeWidth={2.5} /> Close Gallery
               </button>
               <button
                 onClick={handleSelectTour}
-                className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-[0.98]"
+                className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-[0.98] cursor-pointer"
               >
                 {isSelected ? 'Edit Selections' : 'Select Tour'}
               </button>
@@ -255,7 +255,7 @@ export default function TourCard({ tour }: TourCardProps) {
           </div>
           <button
             onClick={(e) => { e.stopPropagation(); useBookingStore.getState().setFullscreenImage(tour.heroImage); }}
-            className="absolute bottom-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md"
+            className="absolute bottom-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md cursor-pointer"
           >
             <Maximize2 className="w-4 h-4" strokeWidth={2} />
           </button>
@@ -269,13 +269,13 @@ export default function TourCard({ tour }: TourCardProps) {
           <div className="flex flex-col sm:flex-row gap-3">
             <button
               onClick={() => setViewState('gallery')}
-              className="flex-1 min-h-[56px] flex items-center justify-center gap-2 border border-[#abadae]/30 rounded-xl text-[#006a2e] font-bold hover:bg-[#eff1f2] transition-all active:scale-[0.98]"
+              className="flex-1 min-h-[56px] flex items-center justify-center gap-2 border border-[#abadae]/30 rounded-xl text-[#006a2e] font-bold hover:bg-[#eff1f2] transition-all active:scale-[0.98] cursor-pointer"
             >
               <Images className="w-5 h-5" /> View Gallery
             </button>
             <button
               onClick={handleSelectTour}
-              className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-[0.98]"
+              className="flex-1 min-h-[56px] flex items-center justify-center gap-2 bg-gradient-to-br from-[#5dfd8a] to-[#006a2e] text-white font-bold rounded-xl shadow-lg hover:brightness-110 transition-all active:scale-[0.98] cursor-pointer"
             >
               {isSelected ? 'Edit Selections' : 'Select Tour'}
             </button>
@@ -287,7 +287,7 @@ export default function TourCard({ tour }: TourCardProps) {
               <span className="text-sm font-semibold text-[#005d27]">
                 {selectedDestinations.length} destination{selectedDestinations.length > 1 ? 's' : ''} selected
               </span>
-              <button onClick={() => deselectTour(tour.id)} className="text-xs font-bold text-[#b6004f] hover:text-[#770031] transition-colors">
+              <button onClick={() => deselectTour(tour.id)} className="text-xs font-bold text-[#b6004f] hover:text-[#770031] transition-colors cursor-pointer">
                 Deselect Tour
               </button>
             </div>

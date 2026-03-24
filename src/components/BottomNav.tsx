@@ -7,10 +7,10 @@ import { ArrowLeft, ArrowRight, Loader2, Send } from 'lucide-react';
 const TOTAL_STEPS = 8;
 
 export default function BottomNav() {
-  const { 
-    currentStep, 
-    setCurrentStep, 
-    getStepValidation, 
+  const {
+    currentStep,
+    setCurrentStep,
+    getStepValidation,
     markStepComplete,
     getTotalPrice,
     getTripDuration,
@@ -37,9 +37,9 @@ export default function BottomNav() {
 
   const handleNext = async () => {
     if (!validation.isValid) return;
-    
+
     markStepComplete(currentStep);
-    
+
     if (isCheckoutStep) {
       setIsSubmitting(true);
       try {
@@ -52,7 +52,7 @@ export default function BottomNav() {
       }
       return;
     }
-    
+
     if (currentStep < TOTAL_STEPS) {
       setCurrentStep(currentStep + 1);
     }
@@ -81,7 +81,7 @@ export default function BottomNav() {
           )}
         </div>
       )}
-      
+
       {/* Navigation buttons */}
       <div className="px-6 py-4 pb-safe flex justify-between items-center gap-4">
         {/* Back Button */}
@@ -89,31 +89,31 @@ export default function BottomNav() {
           onClick={handleBack}
           disabled={isFirstStep || isSubmitting}
           className={`
-            flex items-center justify-center gap-2 
+            flex-[4] flex items-center justify-center gap-2
             border rounded-2xl px-8 py-4 min-h-[56px]
             font-semibold text-sm
             transition-all active:scale-[0.98] duration-200
             ${isFirstStep || isSubmitting
-              ? 'text-zinc-300 border-zinc-100 cursor-not-allowed' 
-              : 'text-zinc-500 border-zinc-200 hover:border-zinc-300 hover:brightness-110'
+              ? 'text-zinc-300 border-zinc-100 cursor-not-allowed'
+              : 'text-zinc-500 border-zinc-200 hover:border-zinc-300 hover:brightness-110 cursor-pointer'
             }
           `}
         >
           <ArrowLeft className="w-5 h-5" strokeWidth={1.5} />
           Back
         </button>
-        
+
         {/* Next/Submit Button */}
         <button
           onClick={handleNext}
           disabled={!validation.isValid || isSubmitting}
           className={`
-            flex-1 flex items-center justify-center gap-2
+            flex-[5] flex items-center justify-center gap-2
             rounded-2xl px-8 py-4 min-h-[56px]
             font-semibold text-sm
             transition-all active:scale-[0.98] duration-200
             ${validation.isValid && !isSubmitting
-              ? 'bg-gradient-to-br from-[#25D366] to-[#006a2e] text-white shadow-lg shadow-emerald-500/20 hover:brightness-110'
+              ? 'bg-gradient-to-br from-[#25D366] to-[#006a2e] text-white shadow-lg shadow-emerald-500/20 hover:brightness-110 cursor-pointer'
               : 'bg-zinc-200 text-zinc-400 cursor-not-allowed'
             }
           `}
@@ -129,7 +129,7 @@ export default function BottomNav() {
           )}
         </button>
       </div>
-      
+
       {/* Validation error */}
       {!validation.isValid && validation.error && (
         <div className="absolute -top-12 left-6 right-6 text-center">

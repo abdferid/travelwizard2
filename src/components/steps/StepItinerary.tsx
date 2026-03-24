@@ -236,7 +236,7 @@ export default function StepItinerary() {
           </div>
           <button
             onClick={resetItineraryOrder}
-            className="px-4 py-2 text-sm font-semibold text-[#b6004f] hover:bg-[#ff8fa8]/20 rounded-xl transition-colors flex items-center gap-2"
+            className="px-4 py-2 text-sm font-semibold text-[#b6004f] hover:bg-[#ff8fa8]/20 rounded-xl transition-colors flex items-center gap-2 cursor-pointer"
           >
             <RotateCcw className="w-4 h-4" strokeWidth={1.5} />
             Reset

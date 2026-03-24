@@ -60,7 +60,7 @@ export default function BookingWizard() {
         <header className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md after:content-[''] after:block after:h-[2px] after:w-full after:bg-gradient-to-r after:from-pink-500 after:to-orange-400">
           <div className="flex justify-between items-center h-16 px-6 max-w-2xl mx-auto w-full">
             <div className="flex items-center gap-4">
-              <button className="text-zinc-500 hover:opacity-80 transition-opacity active:scale-95 duration-200">
+              <button className="text-zinc-500 hover:opacity-80 transition-opacity active:scale-95 duration-200 cursor-pointer">
                 <X className="w-6 h-6" strokeWidth={1.5} />
               </button>
               <h1 className="font-extrabold text-lg text-emerald-600 tracking-tight">
@@ -109,13 +109,13 @@ function ResetButton() {
       <div className="flex items-center gap-2">
         <button
           onClick={() => setShowConfirm(false)}
-          className="px-3 py-1.5 text-xs font-semibold text-zinc-500 hover:text-zinc-700 transition-colors"
+          className="px-3 py-1.5 text-xs font-semibold text-zinc-500 hover:text-zinc-700 transition-colors cursor-pointer"
         >
           Cancel
         </button>
         <button
           onClick={handleReset}
-          className="px-3 py-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors"
+          className="px-3 py-1.5 text-xs font-semibold text-red-600 bg-red-50 hover:bg-red-100 rounded-xl transition-colors cursor-pointer"
         >
           Reset
         </button>
@@ -126,7 +126,7 @@ function ResetButton() {
   return (
     <button
       onClick={() => setShowConfirm(true)}
-      className="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-xl transition-all active:scale-95"
+      className="p-2 text-zinc-400 hover:text-zinc-600 hover:bg-zinc-100 rounded-xl transition-all active:scale-95 cursor-pointer"
       aria-label="Reset booking"
     >
       <RotateCcw className="w-5 h-5" strokeWidth={1.5} />

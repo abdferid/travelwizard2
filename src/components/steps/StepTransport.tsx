@@ -9,7 +9,7 @@ function SkipButton({ onSkip }: { onSkip: () => void }) {
   return (
     <button
       onClick={onSkip}
-      className="w-full py-4 px-6 border-2 border-dashed border-[#abadae]/30 rounded-2xl text-[#595c5d] hover:border-[#006a2e]/30 hover:text-[#006a2e] transition-all flex items-center justify-center gap-2 text-sm font-semibold"
+      className="w-full py-4 px-6 border-2 border-dashed border-[#abadae]/30 rounded-2xl text-[#595c5d] hover:border-[#006a2e]/30 hover:text-[#006a2e] transition-all flex items-center justify-center gap-2 text-sm font-semibold cursor-pointer"
     >
       <ChevronsRight className="w-5 h-5" strokeWidth={1.5} />
       Skip — I'll arrange my own transport
@@ -74,16 +74,16 @@ export default function StepTransport() {
               />
               <div className={`
                 relative bg-white p-6 rounded-[1.5rem] transition-all duration-300
-                shadow-soft flex items-center gap-6
-                ${isSelected 
-                  ? 'ring-2 ring-[#006a2e] shadow-emerald-500/10' 
+                shadow-soft flex flex-col min-[470px]:flex-row min-[470px]:items-center gap-4 min-[470px]:gap-6
+                ${isSelected
+                  ? 'ring-2 ring-[#006a2e] shadow-emerald-500/10'
                   : hasEnoughCapacity
                     ? 'hover:shadow-xl hover:-translate-y-1 hover:border-transparent cursor-pointer'
                     : 'opacity-50 cursor-not-allowed'
                 }
               `}>
                 {/* Vehicle image */}
-                <div className="relative w-32 h-24 bg-[#eff1f2] rounded-xl overflow-hidden flex-shrink-0 group/img">
+                <div className="relative w-full h-44 min-[470px]:w-32 min-[470px]:h-24 bg-[#eff1f2] rounded-xl overflow-hidden flex-shrink-0 group/img">
                   <img 
                     src={transport.image} 
                     alt={transport.title}
@@ -131,6 +131,7 @@ export default function StepTransport() {
                 
                 {/* Selection indicator */}
                 <div className={`
+                  absolute top-4 right-4 min-[470px]:static
                   w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors flex-shrink-0
                   ${isSelected ? 'border-[#006a2e] bg-[#006a2e]' : 'border-[#abadae]'}
                 `}>
@@ -150,13 +151,13 @@ export default function StepTransport() {
       {/* Decorative Image with Expand Button */}
       <div className="mt-16 relative h-48 rounded-3xl overflow-hidden group">
         <img 
-          className="w-full h-full object-cover grayscale opacity-20 group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700" 
-          src="https://images.unsplash.com/photo-1464851739515-5686ec57b988?w=800&auto=format&fit=crop"
+          className="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-all duration-700" 
+          src="/images/scenic-road-trip.png"
           alt="Scenic road trip"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#f5f6f7] via-transparent to-transparent" />
         <button
-          onClick={() => useBookingStore.getState().setFullscreenImage('https://images.unsplash.com/photo-1464851739515-5686ec57b988?w=800&auto=format&fit=crop')}
+          onClick={() => useBookingStore.getState().setFullscreenImage('/images/scenic-road-trip.png')}
           className="absolute top-4 right-4 w-9 h-9 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-black/60 transition-colors shadow-md"
         >
           <Maximize2 className="w-4 h-4" strokeWidth={2} />
