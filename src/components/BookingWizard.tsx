@@ -26,6 +26,19 @@ export default function BookingWizard() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // In the dashboard layout, the 'main' element is the scroll container
+      const scrollContainer = document.querySelector('main');
+      if (scrollContainer) {
+        scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 10);
+    return () => clearTimeout(timer);
+  }, [currentStep]);
+
   if (!mounted) {
     return (
       <div className="min-h-screen bg-[#f5f6f7] flex items-center justify-center">
@@ -50,6 +63,19 @@ export default function BookingWizard() {
       default: return <StepPartySize />;
     }
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // In the dashboard layout, the 'main' element is the scroll container
+      const scrollContainer = document.querySelector('main');
+      if (scrollContainer) {
+        scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 10);
+    return () => clearTimeout(timer);
+  }, [currentStep]);
 
   const isSuccessStep = currentStep === 8 && isSubmitted;
 
@@ -136,26 +162,26 @@ function ResetButton() {
 
 function FullscreenImageModal() {
   const { fullscreenImage, setFullscreenImage } = useBookingStore();
-  
+
   if (!fullscreenImage) return null;
-  
+
   return (
-    <div 
+    <div
       className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 md:p-10 cursor-zoom-out animate-fade-in"
       onClick={() => setFullscreenImage(null)}
     >
-      <button 
+      <button
         type="button"
         className="absolute top-4 right-4 md:top-6 md:right-6 text-white/50 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors shadow-lg"
         onClick={(e) => { e.preventDefault(); e.stopPropagation(); setFullscreenImage(null); }}
       >
         <X className="w-6 h-6" />
       </button>
-      <img 
-        src={fullscreenImage} 
-        alt="Fullscreen zoom" 
-        className="max-w-full max-h-full object-contain rounded border border-white/10 shadow-2xl cursor-default" 
-        onClick={(e) => e.stopPropagation()} 
+      <img
+        src={fullscreenImage}
+        alt="Fullscreen zoom"
+        className="max-w-full max-h-full object-contain rounded border border-white/10 shadow-2xl cursor-default"
+        onClick={(e) => e.stopPropagation()}
       />
     </div>
   );
