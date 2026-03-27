@@ -64,19 +64,6 @@ export default function BookingWizard() {
     }
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      // In the dashboard layout, the 'main' element is the scroll container
-      const scrollContainer = document.querySelector('main');
-      if (scrollContainer) {
-        scrollContainer.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
-    }, 10);
-    return () => clearTimeout(timer);
-  }, [currentStep]);
-
   const isSuccessStep = currentStep === 8 && isSubmitted;
 
   return (
